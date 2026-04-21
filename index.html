@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/x-icon" href="https://64.media.tumblr.com/549b54484d8d94e968157203b655c752/52d24897b4c4af65-46/s1280x1920/857749657bbcce19db5ac0a73692672fef98b3ca.jpg">
+    <a href="museum.html"></a>
+    <meta charset="UTF-8">
+    <title>Hobbyist's Corner - Main</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Spicy+Rice&family=Lexend:wght@400;700&display=swap" rel="stylesheet">
+    <script src="musicplayer.js"></script>
+    <style>
+        /* --- About Me Spacing --- */
+        .bio p {
+            line-height: 1.2;
+            margin-bottom: 0;
+        }
+        
+        .bio p br {
+            content: "";
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        /* --- Individual Image Positioning --- */
+       
+
+        /* --- Locked Text Logic --- */
+        .link-wrapper {
+            position: relative;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .link-img {
+            display: block;
+            width: 200px; 
+            height: auto;
+            border: none; /* This removes the box outline */
+        }
+
+        .locked-label {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            color: white;
+            font-family: 'Spicy Rice', cursive;
+            font-size: 1.5rem;
+            text-shadow: 2px 2px 0px #000;
+        }
+    </style>
+</head>
+
+<body class="index-body">
+
+<div class="main-wrapper">
+
+    <aside class="anecdote-sidebar">
+        <div class="anecdote-content">
+            <textarea class="anecdote-input" placeholder="Write your story here..."></textarea>
+        </div>
+    </aside>
+
+    <main class="content-area">
+
+        <div class="intro-section">
+            <div class="pfp-stack">
+                <img src="https://64.media.tumblr.com/92407df979b5654e94b7729c95a8340a/b124063e03b7b04f-15/s540x810/f9abcf5bc608dfba6fc7108aeb5751e04cc43d91.pnj"
+                     class="pfp-pattern"
+                     alt="pattern border">
+            </div>
+
+            <div class="bio">
+                <h2 class="cute-title">About Me</h2>
+                <p>
+                    <b>Welcome!</b><br>
+                    Hi, I’m Farah Amer, a third-year CS major.<br><br>
+                    I love working with clay and making small figurines—shaping things by hand, starting over, and ending up with something that feels real.<br><br>
+                    I’m also really into movies, especially ones with strong visuals, atmosphere, and scenes that stay in your head long after they’re over.<br><br>
+                    This site is just a space where those interests come together.
+                </p>
+            </div>
+        </div>
+
+     <div class="tumblrwob">
+    <span class="wobble">Y</span>
+    <span class="wobble">o</span>
+    <span class="wobble">u</span>
+    <span class="wobble">t</span>
+    <span class="wobble">u</span>
+    <span class="wobble">b</span>
+    <span class="wobble">e</span>
+    <span class="wobble"> </span>
+    <span class="wobble">v</span>
+    <span class="wobble">i</span>
+    <span class="wobble">d</span>
+    <span class="wobble">e</span>
+    <span class="wobble">o</span>
+</div>
+
+        <div class="yt-frame">
+            <iframe width="420" height="235"
+                src="https://www.youtube.com/embed/KYyVlhqgSvE"
+                frameborder="0"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <div class="movie-link-box">
+            <a href="diary.html" class="link-wrapper">
+                <img src="https://64.media.tumblr.com/cedece8afa438c6bf9f98ae9b629b2b8/b124063e03b7b04f-ad/s500x750/2e17d82062044def290f07134f7c0b2b91a6dc23.pnj" 
+                     class="link-img" alt="Movies">
+                <span class="locked-label">Movies</span>
+            </a>
+        </div>
+
+        <div class="museum-link-box">
+            <a href="museum.html" class="link-wrapper">
+                <img src="https://i.pinimg.com/originals/1c/e9/08/1ce90839c5ca2854b2da9cf4b9257bd3.png"
+                     class="link-img" alt="Museum">
+                <span class="locked-label">Museum</span>
+            </a>
+        </div>
+
+        <div id="musicplayer">
+            <div class="title-color">
+                <div class="actual-title">♫ Music Player</div>
+                <div class="title-bar-controls">
+                    <button class="window-button minimize"></button>
+                    <button class="window-button close"></button>
+                </div>
+            </div>
+
+            <div class="margin-flex">
+                <div class="player-main">
+                    <select class="track-select"></select>
+
+                    <div class="seeking">
+                        <span>♫</span>
+                        <input type="range" id="progressBar" min="0" max="100" value="0">
+                        <span>♫</span>
+                    </div>
+
+                    <div class="seeking" id="timeDisplay">0:00 / 0:00</div>
+
+                    <div class="player-buttons">
+                        <button class="window-button" id="playBtn">▶</button>
+                        <button class="window-button" id="stopBtn">⏹</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <audio id="audioPlayer" autoplay loop></audio>
+
+    </main>
+</div>
+
+<script>
+    if (typeof initMusicPlayer === "function") {
+        initMusicPlayer('index');
+    }
+    // 1. List your song files here
+const songs = [
+    { name: ":3", file: "song1.mp3" },
+    { name: "chiikawa", file: "song2.mp3" },
+    { name: "Lenka", file: "song3.mp3" }
+];
+
+const audio = document.getElementById('audioPlayer');
+const select = document.querySelector('.track-select');
+const playBtn = document.getElementById('playBtn');
+const stopBtn = document.getElementById('stopBtn');
+const progressBar = document.getElementById('progressBar');
+const timeDisplay = document.getElementById('timeDisplay');
+
+// 2. Fill the dropdown menu with your songs
+songs.forEach((song) => {
+    let opt = document.createElement('option');
+    opt.value = song.file;
+    opt.innerHTML = song.name;
+    select.appendChild(opt);
+});
+
+// 3. Play song when selected from the dropdown
+select.addEventListener('change', () => {
+    audio.src = select.value;
+    audio.play();
+});
+
+// 4. Button Controls
+playBtn.addEventListener('click', () => {
+    if (audio.paused) {
+        audio.play();
+        playBtn.innerText = "⏸"; // Changes icon to pause
+    } else {
+        audio.pause();
+        playBtn.innerText = "▶";
+    }
+});
+
+stopBtn.addEventListener('click', () => {
+    audio.pause();
+    audio.currentTime = 0;
+    playBtn.innerText = "▶";
+});
+
+// 5. Update Progress Bar and Time
+audio.addEventListener('timeupdate', () => {
+    const pct = (audio.currentTime / audio.duration) * 100 || 0;
+    progressBar.value = pct;
+    
+    // Format time (e.g., 1:30 / 3:45)
+    const cur = formatTime(audio.currentTime);
+    const dur = formatTime(audio.duration || 0);
+    timeDisplay.innerText = `${cur} / ${dur}`;
+});
+
+progressBar.addEventListener('input', () => {
+    audio.currentTime = (progressBar.value / 100) * audio.duration;
+});
+
+function formatTime(seconds) {
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+}
+
+// Set default first song
+audio.src = songs[0].file;
+</script>
+
+</body>
+
+</html>

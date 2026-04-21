@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/x-icon" href="https://64.media.tumblr.com/549b54484d8d94e968157203b655c752/52d24897b4c4af65-46/s1280x1920/857749657bbcce19db5ac0a73692672fef98b3ca.jpg">
+    <a href="museum.html"></a>
+<meta charset="UTF-8">
+<title>Movie Diary</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Spicy+Rice&display=swap" rel="stylesheet">
+<script src="reviews.js"></script>
+
+<style>
+    /* Only styling the Museum button area */
+    .museum-bottom {
+        position: relative;
+        display: inline-block;
+        /* Use these to move the button */
+        margin-left: -900px;
+        margin-top: -270px;
+    }
+
+    .museum-bottom-img {
+        width: 280px; /* Adjust size here */
+        height: 100v;
+        display: block;
+    }
+
+    .museum-label {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        
+        /* Font styling to match the main page */
+        color: white;
+        font-family: 'Spicy Rice', cursive;
+        font-size: 1.8rem;
+        text-shadow: 2px 2px 0px #000;
+        white-space: nowrap;
+    }
+
+    .museum-bottom a {
+        text-decoration: none;
+        display: block;
+        position: relative;
+    }
+</style>
+</head>
+
+<body class="diary-body">
+
+<div class="back-nav">
+    <a href="index.html" class="back-link">back</a>
+</div>
+
+<div class="journal-container" style="transform: scale(1.10) translateY(60px);">
+    
+    <img src="https://mirae.nekoweb.org/images/pages/diary/Notebook.png"
+         class="journal-bg">
+
+    <div class="journal-content">
+
+        <div class="page-left">
+
+            <div class="tape-section">
+                <img src="https://64.media.tumblr.com/fb83b16e238200344453bd1967fcfd1f/41b373daac779109-6d/s500x750/09c031e40065ee2b72787b544f0b659b4d119844.pnj"
+                     class="tape-img"
+                     onclick="nextReview()">
+            </div>
+
+            <div class="review"></div>
+
+        </div>
+
+        <div class="page-right">
+            <h1 class="movie-title"></h1>
+            <img class="poster">
+        </div>
+
+    </div>
+    
+<div class="pagination"></div>
+</div>
+
+
+<div class="museum-bottom">
+    <a href="museum.html">
+        <img src="https://64.media.tumblr.com/7a41eee0b2004e3a2595f03a7d98c03b/85924b4cdeeee4b3-ba/s540x810/7956799d56a3a5e70a64c6204ff2559e0ba48f37.pnj"
+             class="museum-bottom-img">
+        <div class="museum-label">Museum</div>
+    </a>
+</div>
+
+<audio id="audioPlayer" loop></audio>
+
+
+<script>
+    initReviewSystem();
+ 
+    const songs = [
+    { name: "Song One", file: "song1.mp3" },
+    { name: "Song Two", file: "song2.mp3" },
+    { name: "Song Three", file: "song3.mp3" }
+];
+
+initReviewSystem();
+
+window.onload = function () {
+    const audio = document.getElementById('audioPlayer');
+    audio.src = "song2.mp3";
+    audio.loop = true;
+    audio.volume = 0.6;
+
+    const playPromise = audio.play();
+
+    if (playPromise !== undefined) {
+        playPromise.catch(() => {
+            document.addEventListener('click', () => {
+                audio.play();
+            }, { once: true });
+        });
+    }
+};
+
+</script>
+
+</body>
+</html>

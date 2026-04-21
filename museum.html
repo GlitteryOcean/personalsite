@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/x-icon" href="https://64.media.tumblr.com/549b54484d8d94e968157203b655c752/52d24897b4c4af65-46/s1280x1920/857749657bbcce19db5ac0a73692672fef98b3ca.jpg">
+    <meta charset="UTF-8">
+    <title>The Museum</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Spicy+Rice&display=swap" rel="stylesheet">
+
+    <style>
+        body.museum-page {
+            margin: 0;
+            padding: 0;
+            background: url('https://64.media.tumblr.com/05fdd24f1faa7adbfe2970bd1a6b4188/2d0b59ff9b1def72-cd/s1280x1920/d1300efd1854b3948b55c482398322ab6f44f1f0.jpg') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            overflow-x: hidden;
+            overflow-y: auto;
+            font-family: "Comic Sans MS", "Comic Sans", cursive;
+        }
+
+        .museum-container {
+            width: 100%;
+            min-height: 100%;
+            position: relative;
+            padding-bottom: 50px;
+        }
+        .gallery-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: -140px; /* <-- controls vertical position */
+}
+
+.gallery {
+    display: flex;
+    gap: 60px;
+    align-items: flex-end;
+}
+
+        .back-nav {
+            position: absolute;
+            top: -5px; 
+            left: -26px;
+            z-index: 999;
+        }
+
+        .back-link {
+            color: white;
+            text-decoration: none;
+            font-size: 1.6rem;
+            text-shadow: 2px 2px 0px #000;
+            display: inline-block;
+            transition: transform 0.25s ease;
+        }
+
+        .back-link:hover {
+            transform: scale(1.1) rotate(-2deg);
+        }
+
+        .museum-content {
+            width: 95%;
+            margin: 100px auto;
+            text-align: center;
+        }
+
+      
+
+        /* Clickable image style */
+        
+
+        .item img:hover {
+            transform: scale(1.1);
+        }
+
+
+        .twice {
+            width: 100%;
+            margin-top: 5px;
+        }
+
+        /* The mark/button style - now just looks like a label */
+        mark {
+            padding: 5px 12px;
+            background-color: #87a3ebcc; 
+            color: white;
+            text-shadow: 1px 1px 0px #000;
+            border: none;
+            display: inline-block;
+        }
+
+      
+    </style>
+</head>
+
+<body class="museum-page">
+
+    <div class="museum-container">
+        <div class="back-nav">
+            <a href="index.html" class="back-link">Back</a>
+        </div>
+
+        <div class="museum-content">
+             <div class="gallery-wrapper">
+            <div class="gallery">
+                
+                <div class="item popmart">
+                    <img class="trigger-img" src="https://64.media.tumblr.com/ccd582b256b8a3304f81c318dd7f9cf2/a06b4b3299f8f703-1c/s500x750/bd623e322e64e8109eb1b3983c7ff3dc8c2db522.pnj">
+                    <div class="label">POP Mart</div>
+                    <div class="twice">
+                        <mark>Hirono</mark>
+                        <div class="candy">
+                            <p>Hirono is a collectible designer toy character known for its melancholic expressions. Created by artist Lang with Pop Mart.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item clay">
+                    <img class="trigger-img" src="https://64.media.tumblr.com/b404fc0c2933c26765cfae1d75d98598/a06b4b3299f8f703-a8/s500x750/02061e5341491d1bffc0f27583b98e62c14aeecb.pnj">
+                    <div class="label">CLAY</div>
+                    <div class="twice">
+                        <mark>CLAY</mark>
+                        <div class="candy">
+                            <p>My most and least fav medium. So fun to plan, but hard to follow as a beginner. Homemade clay gives the best output!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item digital">
+                    <img class="trigger-img" src="https://64.media.tumblr.com/a0645bfe910e1e0c5c110e4957df080d/a06b4b3299f8f703-57/s500x750/ee93da9b6eedecb28fc827544b576ac441b1009f.pnj">
+                    <div class="label">DIGITAL ART</div>
+                    <div class="twice">
+                        <mark>DIGITAL ART</mark>
+                        <div class="candy">
+                            <p>Most fun hobby I recently picked up and then immediately left after buying all the equipment lol.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <audio id="audioPlayer" loop></audio>
+
+    <script>
+    // Click Image to Open Description Logic
+    var imgs = document.getElementsByClassName("trigger-img");
+    for (var i = 0; i < imgs.length; i++) {
+        imgs[i].addEventListener("click", function() {
+            // Find the 'candy' div inside the same column
+            var item = this.parentElement;
+            var candy = item.querySelector(".candy");
+            
+            if (candy.style.maxHeight) {
+                candy.style.maxHeight = null;
+            } else {
+                candy.style.maxHeight = candy.scrollHeight + "px";
+            }
+        });
+    }
+
+    window.onload = function () {
+        const audio = document.getElementById('audioPlayer');
+        audio.src = "song2.mp3";
+        audio.loop = true;
+        audio.volume = 0.6;
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(() => {
+                document.addEventListener('click', () => {
+                    audio.play();
+                }, { once: true });
+            });
+        }
+    };
+    </script>
+</body>
+</html>
