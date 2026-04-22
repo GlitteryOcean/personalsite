@@ -37,10 +37,10 @@
 }
 
 #musicplayer {
-    width: fit-content;    /* Returns it to its natural size */
+    width: fit-content;    
     transform: translateY(-330px);
-    margin-left: -300px;     /* Smaller numbers move it LEFT */
-    margin-right: auto;    /* Lets it sit on the left side */
+    margin-left: -300px;    
+    margin-right: auto;   
     
   
     background: #dfdfdf;
@@ -270,17 +270,16 @@ body { margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
     position: relative;
     align-items: flex-start;
 
-    /* IMPORTANT: remove forced page height */
+    
     min-height: unset;
     height: auto;
 
-    /* safety */
     overflow: hidden;
 }
 
 .anecdote-sidebar {
-    width: 320px;        /* 👈 make container bigger */
-    min-height: 500px;   /* 👈 controls height */
+    width: 320px;       
+    min-height: 500px;  
     flex-shrink: 0;
 
     background: url('https://i.pinimg.com/736x/22/af/4e/22af4e8e53ef4eaa78e5c46e2cdcbef4.jpg')
@@ -291,15 +290,15 @@ body { margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
 
     color: #579863;
     text-shadow: 1px 1px 4px #a6ff8ec1;
-    font-family: 'Pacifico', cursive; /* <-- This is the font for the sidebar text */
+    font-family: 'Pacifico', cursive;
     flex-shrink: 0;
 }
 
 .scraping-img {
     position: absolute;
-    top: 20px; /* adjust to under the sidebar */
+    top: 20px; 
     left: 10px;
-    width: 100px; /* adjust size */
+    width: 100px; 
     z-index: 1;
 }
 
@@ -330,12 +329,12 @@ body { margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
     font-size: 3rem;
     color: #abfcd1;
     text-align: center;
-    margin: 10px 0px -25px -700px; /* margin: top right bottom left */
+    margin: 10px 0px -25px -700px; 
     position: relative;
-    left: -50px; /* move left by 50px (about 5 fingers) */
+    left: -50px; 
     animation: jerky 0.5s infinite;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    -webkit-text-stroke: 1px #a8ebcb; /* light blue edge */
+    -webkit-text-stroke: 1px #a8ebcb; 
    -webkit-text-stroke: 1px #a8ebcb;
 }
 
@@ -361,8 +360,8 @@ body { margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
     left: 20%;
     transform: translate(-50%, -50%);
     z-index: 3;
-    padding: 5px 10px; /* small clickable area around text */
-    margin-left: 3px; /* nudge to the right */
+    padding: 5px 10px; 
+    margin-left: 3px; 
 }
 .pink-label { 
     color: #ffa7bb; font-family: 'amita', cursive; 
@@ -383,7 +382,7 @@ body { margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
 
 .back-nav {
     position: absolute;
-    top: 20px;   /* FIXED (was -90px) */
+    top: 20px;  
     left: 20px;
     z-index: 9999;
 }
@@ -413,12 +412,12 @@ body { margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
     justify-content: flex-start;
     white-space: pre;
     font-size: 3rem;
-    font-family: 'Spicy Rice', cursive; /* better match your site */
+    font-family: 'Spicy Rice', cursive;
     color: #abfcd1;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
 }
 
-/* animation */
+
 .wobble:nth-child(4n+1) {
     animation: tumblrwobble 4s ease-in-out -0.5s infinite;
 }
@@ -435,7 +434,6 @@ body { margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
     animation: tumblrwobble 4s ease-in-out 0s infinite;
 }
 
-/* keyframes */
 @keyframes tumblrwobble {
     0%   { transform: translateY(5%) skew(3deg); }
     25%  { transform: translateY(-5%); }
